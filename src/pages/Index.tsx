@@ -28,9 +28,12 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-b from-secondary to-background">
       <header className="border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <Icon name="TrendingUp" size={32} className="text-primary" />
-            <span className="text-2xl font-bold text-secondary">БизнесКредит</span>
+            <div className="flex flex-col">
+              <span className="text-xs text-muted-foreground uppercase tracking-wide">Кредитные решения</span>
+              <span className="text-2xl font-bold text-secondary leading-tight">БизнесКредит</span>
+            </div>
           </div>
           <nav className="hidden md:flex gap-6">
             <a href="#benefits" className="text-muted-foreground hover:text-foreground transition-colors">Преимущества</a>
