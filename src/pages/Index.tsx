@@ -10,14 +10,13 @@ import Icon from '@/components/ui/icon';
 const Index = () => {
   const [loanAmount, setLoanAmount] = useState(1000000);
   const [loanTerm, setLoanTerm] = useState(12);
+  const [interestRate, setInterestRate] = useState(12.5);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     company: '',
     inn: ''
   });
-
-  const interestRate = 12.5;
   const monthlyPayment = (loanAmount * (interestRate / 100 / 12)) / (1 - Math.pow(1 + (interestRate / 100 / 12), -loanTerm));
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -110,6 +109,22 @@ const Index = () => {
                   <div className="flex justify-between text-xs text-muted-foreground">
                     <span>3 мес.</span>
                     <span>60 мес.</span>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <Label className="text-base">Процентная ставка: <span className="font-bold text-primary">{interestRate}%</span></Label>
+                  <Slider
+                    value={[interestRate]}
+                    onValueChange={(value) => setInterestRate(value[0])}
+                    min={1}
+                    max={50}
+                    step={0.5}
+                    className="w-full"
+                  />
+                  <div className="flex justify-between text-xs text-muted-foreground">
+                    <span>1%</span>
+                    <span>50%</span>
                   </div>
                 </div>
 
